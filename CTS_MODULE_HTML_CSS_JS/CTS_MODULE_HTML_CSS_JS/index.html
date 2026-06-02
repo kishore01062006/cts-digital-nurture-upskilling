@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body onbeforeunload="return warningMessage()">
+    <header id="mainHeader">
+        <h1>Local Community Event Portal</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section id="home">
+        <div id="welcomeBanner">
+            Welcome to the Community Portal
+            <span style="color:red;font-weight:bold">
+                Special Offer: Free Registration Today!
+            </span>
+        </div>
+    </section>
+    <section>
+        <h2>Search Events</h2>
+        <input type="text" id="searchBox" placeholder="Search Event">
+        <select id="categoryFilter">
+            <option value="All">All</option>
+            <option value="Music">Music</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Sports">Sports</option>
+        </select>
+    </section>
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        <div id="eventContainer"></div>
+    </section>
+    <section id="gallery">
+        <h2>Event Gallery</h2>
+
+        <table>
+            <tr>
+                <td>
+                    <img src="https://picsum.photos/200?1" class="gallery-img" ondblclick="enlargeImage(this)" alt="Event1">
+                </td>
+
+                <td>
+                    <img src="https://picsum.photos/200?2" class="gallery-img" ondblclick="enlargeImage(this)" alt="Event2">
+                </td>
+
+                <td>
+                    <img src="https://picsum.photos/200?3" class="gallery-img" ondblclick="enlargeImage(this)" alt="Event3">
+                </td>
+            </tr>
+
+            <caption>Community Events Gallery</caption>
+        </table>
+    </section>
+    <section id="register">
+        <h2>Event Registration</h2>
+
+        <form id="eventForm">
+
+            <input type="text" name="name" placeholder="Enter Name" autofocus required>
+
+            <input type="email" name="email" placeholder="Enter Email" required>
+
+            <input type="date" name="date" required>
+
+            <input type="text" id="phone" placeholder="Phone Number" onblur="validatePhone()">
+
+            <select name="eventType" id="eventType" onchange="showFee()">
+
+                <option value="">Choose Event</option>
+                <option value="Music">Music</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Sports">Sports</option>
+
+            </select>
+
+            <p id="fee"></p>
+
+            <textarea id="feedback" placeholder="Message" onkeydown="countCharacters()"></textarea>
+
+            <p id="charCount">0 Characters</p>
+
+            <button type="submit" onclick="showConfirmation()">
+                Register
+            </button>
+
+            <output id="output"></output>
+
+        </form>
+    </section>
+    <section>
+        <h2>Promo Video</h2>
+
+        <video width="400" controls oncanplay="videoReady()">
+
+            <source
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                type="video/mp4">
+
+        </video>
+
+        <p id="videoMsg"></p>
+    </section>
+    <section>
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="location"></p>
+    </section>
+
+    <footer id="contact">
+        <h3>Contact Us</h3>
+        <p>Email: local@gmail.com</p>
+    </footer>
+</body>
+
+</html>
